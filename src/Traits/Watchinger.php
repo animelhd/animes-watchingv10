@@ -16,7 +16,7 @@ trait Watchinger
 {
     public function watching(Model $object): void
     {
-        /* @var \Animelhd\AnimesView\Traits\Watchingable|Model $object */
+        /* @var \Animelhd\AnimesWatching\Traits\Watchingable|Model $object */
         if (! $this->hasWatchinged($object)) {
             $watching = app(config('animeswatching.watching_model'));
             $watching->{config('animeswatching.user_foreign_key')} = $this->getKey();
@@ -27,7 +27,7 @@ trait Watchinger
 
     public function unwatching(Model $object): void
     {
-        /* @var \Animelhd\AnimesView\Traits\Watchingable $object */
+        /* @var \Animelhd\AnimesWatching\Traits\Watchingable $object */
         $relation = $object->watchings()
             ->where('watchingable_id', $object->getKey())
             ->where('watchingable_type', $object->getMorphClass())

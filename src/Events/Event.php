@@ -1,15 +1,15 @@
 <?php
 
-namespace Animelhd\AnimesFavorite\Events;
+namespace Animelhd\AnimesWatching\Events;
 
 use Illuminate\Database\Eloquent\Model;
 
 class Event
 {
-    public Model $favorite;
+    public Model $watching;
 
-    public function __construct(Model $favorite)
+    public function __construct(Model $watching)
     {
-        $this->favorite = $favorite;
+        $this->watching = $watching;
     }
 }
